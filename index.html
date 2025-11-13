@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vincent's Scratch Lab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f0f2f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --accent: #ff6b6b;
+      --shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .dark-mode {
+      --bg: #1a1a1a;
+      --card: #2d2d2d;
+      --text: #e0e0e0;
+      --accent: #ff5252;
+      --shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: all 0.4s ease;
+      padding: 20px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; text-align: center; padding: 40px 0; }
+    h1 {
+      font-size: 3rem; margin-bottom: 1rem;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    p.subtitle { font-size: 1.2rem; opacity: 0.8; margin-bottom: 3rem; }
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+    .project-card {
+      background: var(--card);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 16px 35px rgba(255,107,107,0.2);
+    }
+    .embed-container {
+      position: relative;
+      padding-bottom: 60%;
+      height: 0;
+      overflow: hidden;
+      background: #000;
+    }
+    .embed-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .info {
+      padding: 1.5rem;
+      text-align: left;
+    }
+    .info h3 {
+      font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--accent);
+    }
+    .info p { font-size: 0.95rem; opacity: 0.85; line-height: 1.5; }
+    .btn {
+      display: inline-block; margin-top: 1rem; padding: 0.6rem 1.2rem;
+      background: var(--accent); color: white; text-decoration: none;
+      border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #ff5252; transform: scale(1.05); }
+    .dark-toggle {
+      position: fixed; top: 20px; right: 20px; background: var(--card);
+      padding: 10px; border-radius: 50%; cursor: pointer; font-size: 1.5rem;
+      box-shadow: var(--shadow); z-index: 100;
+    }
+    footer {
+      margin-top: 5rem; padding: 2rem; font-size: 0.9rem; opacity: 0.7;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      .projects { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dark-toggle" onclick="toggleDark()">Dark Mode</div>
+
+  <div class="container">
+    <h1>Vincent's Scratch Lab</h1>
+    <p class="subtitle">Student @ Hop Skole – Programmering 2025</p>
+
+    <div class="projects">
+
+      <!-- Project 1: Flappy Bird -->
+      <div class="project-card">
+        <div class="embed-container">
+          <iframe src="https://scratch.mit.edu/projects/1229705460/embed" allowfullscreen></iframe>
+        </div>
+        <div class="info">
+          <h3>#1 Flappy Bird</h3>
+          <p>Classic bird-flying game with smooth physics and increasing difficulty. Made in Scratch during Programmering 2025.</p>
+          <a href="https://scratch.mit.edu/projects/1229705460" target="_blank" class="btn">Play in Scratch</a>
+        </div>
+      </div>
+
+      <!-- Project 2: 2 Player Shooter -->
+      <div class="project-card">
+        <div class="embed-container">
+          <iframe src="https://scratch.mit.edu/projects/1238899923/embed" allowfullscreen></iframe>
+        </div>
+        <div class="info">
+          <h3>#2 2 Player Shooter</h3>
+          <p>Fast-paced multiplayer shooter: Player 1 (WASD + F), Player 2 (Arrows + L). First to 10 wins!</p>
+          <a href="https://scratch.mit.edu/projects/1238899923" target="_blank" class="btn">Play in Scratch</a>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      Made with Code by Vincent Helle-Johannessen • 
+      <a href="mailto:vincent.helle-johannessen1@bergensskolen.com" style="color: var(--accent);">Contact</a> • 
+      Hop Skole 2025
+    </footer>
+  </div>
+
+  <script>
+    function toggleDark() {
+      document.body.classList.toggle('dark-mode');
+      const icon = document.querySelector('.dark-toggle');
+      icon.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    }
+  </script>
+</body>
+</html>
